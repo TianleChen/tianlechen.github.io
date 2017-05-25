@@ -8,7 +8,7 @@ description: Test
 ---
 
 ##Test one: Link
-GOOGLE(https://www.google.com)
+[GOOGLE](https://www.google.com)
 
 ##Test two: Indent
 >Test Indent
