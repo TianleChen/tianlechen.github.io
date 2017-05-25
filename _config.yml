@@ -1,19 +1,19 @@
 # Site settings
-title: 读立写生
+title: Just for fun
 header-img: "img/green.jpg"
-tagline: "cn"  
-description: "陈素封|读而立·写而生"  
+tagline: "cn"
+description: "Life is too short"
 baseurl: ""
-url: "http://cnfeat"  
+url: "http://tianle.info"
 
 # About/contact
 owner: 
-  name: " CnFeat"
-  email: CnFeat@gmail.com
-  bio: "写就是写的报酬"
+  name: "Tianle"
+  email: ericchentianle@gmail.com
+  bio: "Life if too short"
 
 # Data
-gavatar: http://dreamofbook.qiniudn.com/Az..png
+gavatar: https://s.gravatar.com/avatar/e3260fce6270fb02ea562045338f2892?s=80
 favicon: img/favicon.png
 
 douban_username:  
@@ -33,7 +33,7 @@ paginate: 8
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone: Asia/Shanghai
+timezone: US/Pacific
 
 # Defaults for posts
 defaults:
