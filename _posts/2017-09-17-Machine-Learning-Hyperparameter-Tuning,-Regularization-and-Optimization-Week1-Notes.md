@@ -14,12 +14,12 @@ description: Notes for Machine Learning Course: Hyperparameter tuning, Regulariz
 - Make sure the dev and test sets come from the same distribution
 
 ## **Bias/Variance**
-###**Assumption: **
+### **Assumption: **
 
 - Human prediction(optimal) error is nearly 0%
 - Training and dev sets are drawn from the same distribution
 
-###**Result:**
+### **Result:**
 
 - High Bias(underfitting): Training set error is **HIGH**; Dev set error is **HIGH**
 - High Variance(overfitting): Training set error is **LOW**; Dev set error is **HIGH**
