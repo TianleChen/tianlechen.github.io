@@ -14,7 +14,7 @@ description: Notes for Machine Learning Course: Hyperparameter tuning, Regulariz
 - Make sure the dev and test sets come from the same distribution
 
 ## **Bias/Variance**
-### **Assumption: **
+### **Assumption:**
 
 - Human prediction(optimal) error is nearly 0%
 - Training and dev sets are drawn from the same distribution
@@ -50,9 +50,9 @@ condvariance(no)->e
 
 # **Regularizing Your Neural Network**
 ## **Regularization**
-- **L2 Regularization: **
+- **L2 Regularization:**
 $$||w||_2^2=\sum_{j=1}^{x_n}w_j^2=w^Tw$$
-- **Frobenius Norm: **
+- **Frobenius Norm:**
 $$||w^{[l]}||_F^2=\sum_{i=1}^{n^{[l-1]}}\sum_{j=1}^{n^{[l]}}(w_{ij}^{[l]})^2$$
 
 ## **Dropout Regularization**
@@ -64,7 +64,7 @@ $$||w^{[l]}||_F^2=\sum_{i=1}^{n^{[l-1]}}\sum_{j=1}^{n^{[l]}}(w_{ij}^{[l]})^2$$
 
 # **Optimization Problem**
 ## **Normalizing Inputs**
-- **Subtract Mean: **
+- **Subtract Mean:**
 $$\mu=\frac{1}{m}\sum_{i=1}^mx^{(i)}$$
 $$x:=x-\mu$$
 
