@@ -7,7 +7,7 @@ tags: [Machine Learning]
 description: Notes for Machine Learning Course: Hyperparameter tuning, Regularization and Optimization
 ---
 
-#**Setting up your Machine Learning Application**
+**Setting up your Machine Learning Application**
 ## **Train/Dev/Test sets**
 
 - For small number of Data, 70/30 or 60/20/20, but for large data say 1 million, dev and test sets just need to be big enough for evaluation. In this case, the percentage can be only 1% or even 0.5% (around 10,000)
