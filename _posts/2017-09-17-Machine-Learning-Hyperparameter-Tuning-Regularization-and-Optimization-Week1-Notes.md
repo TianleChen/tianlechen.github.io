@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Test Test
+title: Machine Learning: Hyperparameter tuning, Regularization and Optimization Week1 Notes
 date: 2017-09-20
 categories: blog
 tags: [test]
