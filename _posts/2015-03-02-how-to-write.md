@@ -1,10 +1,10 @@
 ---
-layout: post
-title: Test Sample
-date: 2017-05-25
-categories: blog
-tags: [test]
-description: Test
+---layout: post
+---title: Test Sample
+---date: 2017-05-25
+---categories: blog
+---tags: [test]
+---description: Test
 ---
 
 ##Test one: Link
