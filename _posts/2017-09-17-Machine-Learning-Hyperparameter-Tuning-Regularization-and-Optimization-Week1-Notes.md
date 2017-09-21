@@ -48,6 +48,15 @@ condvariance(yes)->opvariance1->opvariance2->opvariance3->condvariance
 condvariance(no)->e
 ```
 
+TEST Flow chart
+<div class="mermaid">
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</div>
+
 # **Regularizing Your Neural Network**
 ## **Regularization**
 - **L2 Regularization:**
