@@ -120,11 +120,11 @@ $$b:=b-\alpha\frac{V_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\epsilon}$$
 
 $$\alpha$$ Needs to be tune
 
-$$\beta_1$$ 0.9 ------ $$(dW)$$
+$$\beta_1 ------ 0.9 ------ (dW)$$
 
-$$\beta_2$$ 0.99 ----- $$(dW^2)$$
+$$\beta_2 ------ 0.99 ----- (dW^2)$$
 
-$$\epsilon 10^{-8}$$
+$$\epsilon ----- 10^{-8}$$
 
 ## **Learning Rate Decay**
 **Implementation Details**
