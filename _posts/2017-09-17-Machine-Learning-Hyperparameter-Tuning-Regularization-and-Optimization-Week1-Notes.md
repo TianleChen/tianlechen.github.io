@@ -27,34 +27,23 @@ description: "Notes for machine learning course: Hyperparameter tuning, Regulari
 - Low Bias & Low Variance: Training set error is **LOW**; Dev set error is **LOW**
 
 ## **Basic Recipe for Machine Learning**
-```flow
-st=>start: Start
-condbias=>condition: High Bias?
-(Training set performance)
-opbias1=>operation: Bigger Network
-opbias2=>operation: Train Longer
-opbias3=>operation: (NN Architecture search)
-condvariance=>condition: High Variance?
-(Dev set performance)
-opvariance1=>operation: More Data
-opvariance2=>operation: Regularization
-opvariance3=>operation: (NN Architecture search)
-e=>end
-
-st->condbias
-condbias(yes)->opbias1->opbias2->opbias3->condbias
-condbias(no)->condvariance
-condvariance(yes)->opvariance1->opvariance2->opvariance3->condvariance
-condvariance(no)->e
-```
 
 TEST Flow chart
 <div class="mermaid">
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+graph TD
+    A(Start) -->B{High Bias?}
+    B --> |YES|C[Bigger Network]
+    C --> D[Train Longer]
+    D --> E["(NN Architecture Search)"]
+    E --> B
+
+    B --> |NO|F{High Variance?}
+    F --> |YES|G[More Data]
+    G --> H[Regularization]
+    H --> I["(NN Architecture Search)"]
+    I --> F
+
+    F --> |NO|J(End)
 </div>
 
 # **Regularizing Your Neural Network**
