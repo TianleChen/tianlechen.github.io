@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "milestone"
+title: "Milestone"
 description: "Milestone"
 header-img: "img/zhihu.jpg"
 ---
