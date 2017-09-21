@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Machine Learning: Hyperparameter tuning, Regularization and Optimization Week2 Notes"
-date: 2017-09-19
+date: 2017-09-21
 categories: blog
 tags: [Machine Learning]
 description: "Notes for Machine Learning Course: Hyperparameter tuning, Regularization and Optimization"
