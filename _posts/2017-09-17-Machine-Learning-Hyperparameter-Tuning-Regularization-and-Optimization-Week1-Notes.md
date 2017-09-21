@@ -31,7 +31,7 @@ description: "Notes for machine learning course: Hyperparameter tuning, Regulari
 TEST Flow chart
 <div class="mermaid">
 graph TD
-    A(Start) -->B{High Bias?}
+    A(Start) --> B{High Bias?}
     B --> |YES|C[Bigger Network]
     C --> D[Train Longer]
     D --> E["(NN Architecture Search)"]
