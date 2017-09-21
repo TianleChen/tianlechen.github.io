@@ -28,7 +28,6 @@ description: "Notes for machine learning course: Hyperparameter tuning, Regulari
 
 ## **Basic Recipe for Machine Learning**
 
-TEST Flow chart
 <div class="mermaid">
 graph TD
     
