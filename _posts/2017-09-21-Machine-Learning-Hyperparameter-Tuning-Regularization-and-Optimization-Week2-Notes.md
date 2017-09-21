@@ -48,10 +48,15 @@ If small training set: Use batch gradient descent (m <= 2000)
 
 ## **Exponentially Weighted Averages**
 $$V_t=\beta V_{t-1}+(1-\beta)\theta_t$$
+
 **Average over:**
+
 $$\approx\frac{1}{1-\beta} days$$
+
 $$\beta=0.9 \approx 10-days-temperature$$
+
 $$\beta=0.98 \approx 50-days-temperature$$
+
 $$\beta=0.5 \approx 2-days-temperature$$
 
 ## **Bias Correction in Exponentially Weighted Averages**
@@ -62,38 +67,63 @@ $$\frac{V_t}{1-\beta^t}$$
 
 ## **Gradient Descent with Momentum**
 **Implementation Details**
+
 $$V_{dW}=\beta V_{dW}+(1-\beta)d_W$$
+
 $$V_{db}=\beta V_{db}+(1-\beta)d_b$$
+
 $$W=W-\alpha V_{dW}$$
+
 $$b=b-\alpha V_{db}$$
 
 ## **RMSprop (Root Mean Square)**
 **Implementation Details**
+
 $$S_{dW}=\beta_2 S_{dW}+(1-\beta_2)dW^2$$
+
 $$S_{db}=\beta_2 S_{db}+(1-\beta_2)db^2$$
+
 $$W:=W-\alpha \frac{dW}{\sqrt{S_{dw}}}$$
+
 $$b:=b-\alpha \frac{db}{\sqrt{S_{db}}}$$
 
 ## **Adam(Adaptive Moment Estimation) Optimization Algorithm**
 **Implementation Details**
+
 $$V_{dW}=0, S_{dW}=0, V_{db}=0, S_{db}=0$$
+
 On iterater t:
+
 Compute dW, db using mini-batch
+
 $$V_{dW}=\beta_1 V_{dW}+(1-\beta_1)d_W$$
+
 $$V_{db}=\beta_1 V_{db}+(1-\beta_1)d_b$$
+
 $$S_{dW}=\beta_2 S_{dW}+(1-\beta_2)dW^2$$
+
 $$S_{db}=\beta_2 S_{db}+(1-\beta_2)db^2$$
+
 $$V_{dW}^{corrected}=V_{dW}/(1-\beta_1^t)$$
+
 $$V_{db}^{corrected}=V_{db}/(1-\beta_1^t)$$
+
 $$S_{dW}^{corrected}=S_{dW}/(1-\beta_2^t)$$
+
 $$S_{db}^{corrected}=S_{db}/(1-\beta_2^t)$$
+
 $$W:=W-\alpha\frac{V_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\epsilon}$$
+
 $$b:=b-\alpha\frac{V_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\epsilon}$$
 
 **Hyperparameters Choice**
+
 $$\alpha$$ Needs to be tune
+
 $$\beta_1$$ 0.9    $$(dW)$$
+
 $$\beta_2$$ 0.99   $$(dW^2)$$
+
 $$\epsilon 10^{-8}$$
 
 ## **Learning Rate Decay**
