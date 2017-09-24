@@ -98,7 +98,7 @@ $$(n^{[l]}, 1)$$
 ## **Batch Norm at Test Time**
 **Use exponential weighted average across mini-batch**
 $$X^{{1}}, X^{{2}}, X^{{3}}, ...$$
-\mu^{{1}[l]}, \mu^{{2}[l]}, \mu^{{3}[l]}, ...
+mu
 $$\theta_1, \theta_2, \theta_3, ...$$
 $$\delta_1, \delta_2, \delta_3, ...$$
 $$Z_{norm}=\frac{Z-\mu}{\sqrt{\delta^2+\epsilon}}$$
