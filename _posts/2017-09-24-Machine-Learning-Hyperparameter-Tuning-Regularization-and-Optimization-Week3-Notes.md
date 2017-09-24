@@ -20,6 +20,7 @@ After found the best performance area, zoom in to the area and sample densely
 - For learning rate, it's better to choose random value based on log scale
 
 $$r=-4*np.random.randn()$$
+
 $$\alpha=10^r$$
 
 **Hyperparameters for Exponentially Weighted Averages**
