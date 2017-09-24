@@ -75,9 +75,9 @@ $$\beta^{[l]}=\beta^{[l]}-\alpha d\beta^{[l]}$$
 $$tf.nn.batch.normalization$$
 
 ### **Working with Mini-batches**
-$$X^{{1}} \rightarrow^{W^{[1]}, b^{[1]}} \rightarrow Z^{[1]} \rightarrow_{BatchNum(BN)}^{\beta^{[1]}, \gamma^{[1]}} \rightarrow \tilde{Z}^{[1]} \rightarrow a^{[1]}=g^{[1]}(\tilde{Z}^{[1]}) \rightarrow^{W^{[2]}, b^{[2]}} \rightarrow Z^{[2]} ...$$
+$$X^{\{1\}} \rightarrow^{W^{[1]}, b^{[1]}} \rightarrow Z^{[1]} \rightarrow_{BatchNum(BN)}^{\beta^{[1]}, \gamma^{[1]}} \rightarrow \tilde{Z}^{[1]} \rightarrow a^{[1]}=g^{[1]}(\tilde{Z}^{[1]}) \rightarrow^{W^{[2]}, b^{[2]}} \rightarrow Z^{[2]} ...$$
 
-$$X^{{2}} \rightarrow^{W^{[1]}, b^{[1]}} \rightarrow Z^{[1]} \rightarrow_{BatchNum(BN)}^{\beta^{[1]}, \gamma^{[1]}} \rightarrow \tilde{Z}^{[1]} \rightarrow a^{[1]}=g^{[1]}(\tilde{Z}^{[1]}) \rightarrow^{W^{[2]}, b^{[2]}} \rightarrow Z^{[2]} ...$$
+$$X^{\{2\}} \rightarrow^{W^{[1]}, b^{[1]}} \rightarrow Z^{[1]} \rightarrow_{BatchNum(BN)}^{\beta^{[1]}, \gamma^{[1]}} \rightarrow \tilde{Z}^{[1]} \rightarrow a^{[1]}=g^{[1]}(\tilde{Z}^{[1]}) \rightarrow^{W^{[2]}, b^{[2]}} \rightarrow Z^{[2]} ...$$
 
 Parameters: $$W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]}... \beta^{[1]}, \gamma^{[1]}, \beta^{[2]}, \gamma^{[2]}...$$
 
@@ -98,7 +98,7 @@ $$(n^{[l]}, 1)$$
 
 ### **Implementing Gradient Descent**
 > for t = 1 ... num Mini Batches
->> **Compute forward prop on** $$X^{{t}}$$
+>> **Compute forward prop on** $$X^{\{t\}}$$
 >>> In each hidden layer, use BN to replace $$Z^{[l]} with \tilde{Z}^{[l]}$$
 >>
 >> **Use back prop to compute** $$dW^{[l]}, d\beta^{[l]}, d\gamma^{[l]}$$
@@ -124,9 +124,9 @@ $$(n^{[l]}, 1)$$
 ## **Batch Norm at Test Time**
 **Use exponential weighted average across mini-batch**
 
-$$X^{{1}}, X^{{2}}, X^{{3}}, ...$$
+$$X^{\{1\}}, X^{\{2\}}, X^{\{3\}}, ...$$
 
-mu
+$$\mu^{\{1\}[l]}, \mu^{\{2\}[l]}, \mu^{\{3\}[l]}, ...$$
 
 $$\theta_1, \theta_2, \theta_3, ...$$
 
