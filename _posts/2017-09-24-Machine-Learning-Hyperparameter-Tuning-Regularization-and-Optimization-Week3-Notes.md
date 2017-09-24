@@ -81,7 +81,7 @@ $$X^{{2}} \rightarrow^{W^{[1]}, b^{[1]}} \rightarrow Z^{[1]} \rightarrow_{BatchN
 
 Parameters: $$W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]}... \beta^{[1]}, \gamma^{[1]}, \beta^{[2]}, \gamma^{[2]}...$$
 
-Since ~~b~~
+Since  ̵b̵
 
 The functions become:
 
