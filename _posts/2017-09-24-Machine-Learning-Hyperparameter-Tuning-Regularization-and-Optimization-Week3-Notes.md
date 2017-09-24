@@ -18,12 +18,16 @@ After found the best performance area, zoom in to the area and sample densely
 **Appropriate Scale for Hyperparameters**
 - For number of layers or number of units in each layer, we can choose random value on linear scale
 - For learning rate, it's better to choose random value based on log scale
+
 $$r=-4*np.random.randn()$$
 $$\alpha=10^r$$
 
 **Hyperparameters for Exponentially Weighted Averages**
+
 $$r\in[-3,-1]$$
+
 $$1-\beta=10^r$$
+
 $$\beta=1-10^r$$
 
 ## **Hyperparameters Tuning in Practice: Pandas vs. Caviar**
@@ -37,16 +41,24 @@ $$\beta=1-10^r$$
 **Implementing Batch Norm**
 
 Given some intermediate values in NN,
+
 $$z^{(1)}, ..., z^{(n)}$$
+
 $$\mu=\frac{1}{m}\sum_i z^{(i)}$$
+
 $$\delta^2=\frac{1}{m}\sum_i (z_i-\mu)^2$$
+
 $$z_{norm}^{(i)}=\frac{z^{(i)}-\mu}{\sqrt{\delta^2+\epsilon}}$$
+
 $$\tilde{z}^{(i)}=\gamma z_{norm}^{(i)}+\beta$$
-where $$\gamma, \beta$$ learnable parameters of model
+
+where $$\gamma, \beta$$ are learnable parameters of model
 
 If
 $$\gamma=\sqrt{\delta^2+\epsilon}$$
+
 $$\beta=\mu$$
+
 then
 $$\tilde{z}^{(i)}=z^{(i)}$$
 
@@ -55,35 +67,52 @@ Use $$\tilde{z}^{[l](i)}$$ Instead of $$z^{[l](i)}$$
 ## **Fitting Batch Norm into a Neural Network**
 ### **Adding Batch Norm to a Network**
 $$X \rightarrow^{W^{[1]}, b^{[1]}} \rightarrow Z^{[1]} \rightarrow_{BatchNum(BN)}^{\beta^{[1]}, \gamma^{[1]}} \rightarrow \tilde{Z}^{[1]} \rightarrow a^{[1]}=g^{[1]}(\tilde{Z}^{[1]}) \rightarrow^{W^{[2]}, b^{[2]}} \rightarrow Z^{[2]} ...$$
+
 Parameters: $$W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]}... \beta^{[1]}, \gamma^{[1]}, \beta^{[2]}, \gamma^{[2]}...$$
+
 $$d\beta^{[l]}$$
+
 $$\beta^{[l]}=\beta^{[l]}-\alpha d\beta^{[l]}$$
+
 $$tf.nn.batch.normalization$$
 
 ### **Working with Mini-batches**
 $$X^{{1}} \rightarrow^{W^{[1]}, b^{[1]}} \rightarrow Z^{[1]} \rightarrow_{BatchNum(BN)}^{\beta^{[1]}, \gamma^{[1]}} \rightarrow \tilde{Z}^{[1]} \rightarrow a^{[1]}=g^{[1]}(\tilde{Z}^{[1]}) \rightarrow^{W^{[2]}, b^{[2]}} \rightarrow Z^{[2]} ...$$
+
 $$X^{{2}} \rightarrow^{W^{[1]}, b^{[1]}} \rightarrow Z^{[1]} \rightarrow_{BatchNum(BN)}^{\beta^{[1]}, \gamma^{[1]}} \rightarrow \tilde{Z}^{[1]} \rightarrow a^{[1]}=g^{[1]}(\tilde{Z}^{[1]}) \rightarrow^{W^{[2]}, b^{[2]}} \rightarrow Z^{[2]} ...$$
+
 Parameters: $$W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]}... \beta^{[1]}, \gamma^{[1]}, \beta^{[2]}, \gamma^{[2]}...$$
+
 Since ~~b~~
+
 The functions become:
+
 $$Z^{[l]}=W^{[l]}a^{[l-1]}$$
+
 $$Z_{norm}^{[l]}$$
+
 $$\tilde{Z}^{[l]}=\gamma^{[l]}Z_{norm}^{[l]}+\beta^{[l]}$$
+
 where
 $$Z^{[l]}, \beta^{[l]}, \gamma^{[l]}$$
 has dimension
 $$(n^{[l]}, 1)$$
 
 ### **Implementing Gradient Descent**
-> for t = 1 ... num Mini Batches
->> **Compute forward prop on** $$X^{{t}}$$
->>> In each hidden layer, use BN to replace $$Z^{[l]} with \tilde{Z}^{[l]}$$
+```python
+for t = 1 ... num Mini Batches
+    **Compute forward prop on** $$X^{{t}}$$
+        In each hidden layer, use BN to replace $$Z^{[l]} with \tilde{Z}^{[l]}$$
 
->> **Use back prop to compute** $$dW^{[l]}, d\beta^{[l]}, d\gamma^{[l]}$$
->> **Update parameters**
->> $$W^{[l]}:=W-\alpha dW^{[l]}$$
->> $$\beta^{[l]}:=\beta-\alpha d\beta^{[l]}$$
->> $$\gamma^{[l]}:=\gamma-\alpha d\gamma^{[l]}$$
+    **Use back prop to compute** $$dW^{[l]}, d\beta^{[l]}, d\gamma^{[l]}$$
+    **Update parameters**
+        
+        $$W^{[l]}:=W-\alpha dW^{[l]}$$
+        
+        $$\beta^{[l]}:=\beta-\alpha d\beta^{[l]}$$
+        
+        $$\gamma^{[l]}:=\gamma-\alpha d\gamma^{[l]}$$
+```
 
 **This also works with moment, RMSprop, Adam**
 
@@ -97,35 +126,52 @@ $$(n^{[l]}, 1)$$
 
 ## **Batch Norm at Test Time**
 **Use exponential weighted average across mini-batch**
+
 $$X^{{1}}, X^{{2}}, X^{{3}}, ...$$
+
 mu
+
 $$\theta_1, \theta_2, \theta_3, ...$$
+
 $$\delta_1, \delta_2, \delta_3, ...$$
+
 $$Z_{norm}=\frac{Z-\mu}{\sqrt{\delta^2+\epsilon}}$$
+
 where $$\mu$$ is the latest one
+
 Then calculate,
+
 $$\tilde{Z}=\gamma Z_{norm}+\beta$$
 
 ## **Multi-class Classification**
 ### **Softmax Regression**
 **Softmax Activation Function**
+
 $$Z^{[l]}=W^{[l]}a^{[l-1]}+b^{[l]} ----- (4,1)$$
+
 $$t=e^{Z^{[l]}} ----------- (4,1)$$
+
 $$a^{[l]}=\frac{e^{Z^{[l]}}}{\sum_{j=1}^4 t_i}, a^{[l]}=\frac{t_i}{\sum_{j=1}^4 t_i} -- (4,1)$$
 
 ### **Training a Softmax Classifer**
 **Understanding Softmax**
 
 **Loss Function**
+
 $$L(\hat{y}, y)=-\sum_{j=1}^4 y_j log\hat{y_j}$$
+
 $$J(w^{[l]}, b^{[l]}, ...)=\frac{1}{m}\sum_{i=1}^m L(\hat{y}^{(i)}, y^{(i)})$$
 
 **Vectorization**
+
 $$Y --- [4, m]$$
+
 $$\hat{Y} --- [4, m]$$
 
 **Gradient Descent with Softmax**
+
 **Backprop**
+
 $$\frac{\alpha J}{\alpha z^{[L]}} = dz^{[L]}=\hat{y}-y$$
 
 # **Introduction to Programming Frameworks**
@@ -138,6 +184,7 @@ $$\frac{\alpha J}{\alpha z^{[L]}} = dz^{[L]}=\hat{y}-y$$
 ## **TensorFlow**
 ### **Motivation Problem**
 **Cost Function**
+
 $$J(w)=w^2-10w+25$$
 
 **Implement in TensorFlow**
