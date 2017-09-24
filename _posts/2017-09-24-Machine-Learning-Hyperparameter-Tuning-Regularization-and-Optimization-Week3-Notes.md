@@ -98,17 +98,17 @@ $$(n^{[l]}, 1)$$
 
 ### **Implementing Gradient Descent**
 > for t = 1 ... num Mini Batches
-    >> **Compute forward prop on** $$X^{{t}}$$
-        >>> In each hidden layer, use BN to replace $$Z^{[l]} with \tilde{Z}^{[l]}$$
+>> **Compute forward prop on** $$X^{{t}}$$
+>>> In each hidden layer, use BN to replace $$Z^{[l]} with \tilde{Z}^{[l]}$$
 
-    >> **Use back prop to compute** $$dW^{[l]}, d\beta^{[l]}, d\gamma^{[l]}$$
-    >> **Update parameters**
+>> **Use back prop to compute** $$dW^{[l]}, d\beta^{[l]}, d\gamma^{[l]}$$
+>> **Update parameters**
         
-        >>> $$W^{[l]}:=W-\alpha dW^{[l]}$$
+>>> $$W^{[l]}:=W-\alpha dW^{[l]}$$
         
-        >>> $$\beta^{[l]}:=\beta-\alpha d\beta^{[l]}$$
+>>> $$\beta^{[l]}:=\beta-\alpha d\beta^{[l]}$$
         
-        >>> $$\gamma^{[l]}:=\gamma-\alpha d\gamma^{[l]}$$
+>>> $$\gamma^{[l]}:=\gamma-\alpha d\gamma^{[l]}$$
 
 **This also works with moment, RMSprop, Adam**
 
