@@ -12,6 +12,7 @@ description: "Notes for Machine Learning Course: Hyperparameter tuning, Regulari
 **Try Random Values: Don't use a grid**
 
 **Coarse to Fine**
+
 After found the best performance area, zoom in to the area and sample densely
 
 ## **Using an Appropriate Scale to Pick Hyperparameters**
