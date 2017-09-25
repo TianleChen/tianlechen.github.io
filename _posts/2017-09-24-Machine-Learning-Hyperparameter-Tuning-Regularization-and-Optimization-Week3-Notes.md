@@ -157,7 +157,7 @@ $$a^{[l]}=\frac{e^{Z^{[l]}}}{\sum_{j=1}^4 t_i}, a^{[l]}=\frac{t_i}{\sum_{j=1}^4 
 
 **Loss Function**
 
-$$L(\hat{y}, y)=-\sum_{j=1}^4 y_j log\hat{y_j}$$
+$$\mathcal{L}(\hat{y}, y)=-\sum_{j=1}^4 y_j log\hat{y_j}$$
 
 $$J(w^{[l]}, b^{[l]}, ...)=\frac{1}{m}\sum_{i=1}^m L(\hat{y}^{(i)}, y^{(i)})$$
 
