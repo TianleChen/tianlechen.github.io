@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Structuring Machine Learning Projects Week1 Notes"
+title: "Machine Learning: Structuring Machine Learning Projects Week1 Notes"
 date: 2017-10-19
 categories: blog
 tags: [Machine Learning]
