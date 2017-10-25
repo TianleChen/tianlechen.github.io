@@ -19,8 +19,8 @@ description: "Notes for Machine Learning Course: Structuring Machine Learning Pr
 - Try dropout
 - Add L2 regularization
 - Network architecture
- - Activation functions
- - # hidden units
+- - Activation functions
+- - Number of hidden units
 
 ## **Orthogonalization**
 **Chain of assumptions in ML**
