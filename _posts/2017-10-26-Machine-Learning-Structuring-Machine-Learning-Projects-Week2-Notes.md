@@ -86,6 +86,7 @@ Dev error | 10% | 10% | 12% | 20%
 Training-dev set: Same distribution as training set, but not used for training
 
 **Bias/variance on mismatched training and dev/test sets**
+
 Human level | 4%
 ----------- | --
 Error | avoidable bias
