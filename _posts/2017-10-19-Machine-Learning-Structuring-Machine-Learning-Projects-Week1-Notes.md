@@ -9,7 +9,6 @@ description: "Notes for Machine Learning Course: Structuring Machine Learning Pr
 
 # **Introduction to ML Strategy**
 ## **Why ML Strategy**
-test $$s$$ s
 **Ideas**
 - Collect more data
 - Collect more diverse traning set
