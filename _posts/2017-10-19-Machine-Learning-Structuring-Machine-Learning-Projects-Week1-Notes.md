@@ -7,10 +7,9 @@ tags: [Machine Learning]
 description: "Notes for Machine Learning Course: Structuring Machine Learning Projects"
 ---
 
-test $s$ s
-
 # **Introduction to ML Strategy**
 ## **Why ML Strategy**
+test $s$ s
 **Ideas**
 - Collect more data
 - Collect more diverse traning set
