@@ -13,6 +13,7 @@ $$V = [a, aaron, ..., zulu, <UNK>]$$
 1-hot representation
 
 **Featurized representation:word embedding**
+
 Feature| Man(5391) | Woman(9853) | King(4914) | Quene(7157) | Apple(456) | Orange(6257)
 -------|-----------|-------------|------------|-------------|------------|-------------
 Gender |-1         |1            |-0.95       |0.97         |-0.01       |0.00         
@@ -23,14 +24,17 @@ Size|...|...|...|...|...|...
 Cost|...|...|...|...|...|...
 Alive|...|...|...|...|...|...
 Verb|...|...|...|...|...|...
+
 **Notation**|$$e^{5391}$$|$$e^{9853}$$|...|...|...|...
 
 **Visualizing word embeddings**
+
 t-SNE algorithm
 ![](https://lvdmaaten.github.io/tsne/examples/SP500_tsne.png)
 
 ## **Using word embeddings**
 **Named entity recognition example**
+
 Sally Johnson is an orange farmer
 Robert Lin is an apple farmer
 xxx xxx is a durian cultivator
@@ -50,6 +54,7 @@ Less useful for: language modeling, machine translation, especially when those t
 
 ## **Properties of word embeddings**
 **Analogies**
+
 Feature| Man(5391) | Woman(9853) | King(4914) | Quene(7157) | Apple(456) | Orange(6257)
 -------|-----------|-------------|------------|-------------|------------|-------------
 Gender |-1         |1            |-0.95       |0.97         |0.00        |0.01         
@@ -59,30 +64,44 @@ Food   |0.09       |0.01         |0.02        |0.01         |0.95        |0.97
 Notation|e5391(eman)|ewoman      |eking       |equeen       |eapple      |eorange
 
 Man -> Woman as King -> ?
+
 $${e_{man} - e_{woman} \approx \left[\begin{array}{cccc}-2\\0\\0\\0\end{array}\right]}$$
+
 $${e_{king} - e_{queen} \approx \left[\begin{array}{cccc}-2\\0\\0\\0\end{array}\right]}$$
 
 **Analogies using word vectors**
+
 $${e_{man} - e_{woman} \approx e_{king} - e_{w}}$$
+
 Find word Wi
+
 $${argmax_w sim(e_{w}, e_{king} - e{man} + e{woman})}$$
 
 **Cosine similarity**
+
 $${sim(e_{w}, e_{king} - e_{man} + e_{woman})}$$
+
 $${sim(u, v) = \frac{u^{T}v}{||u||_{2}||v||_{2}}}$$
+
 Man:Woman as Boy:Girl
+
 Ottawa:Canada as Nairobi:Kenya
+
 Big:Bigger as Tall:Taller
+
 Yen:Japan as Ruble:Russia
 
 ## **Embedding matrix**
 **Embedding matrix**
+
 $$E*O_{6257} = [] = e_{6257}$$
+
 $$E*O_{j} = e_{j} = embedding for word j$$
 
 # **Learning Word Embeddings: Word2vec & GloVe**
 ## **Learning word embeddings**
 **Neural language model**
+
 I      |want       |a            |glass       |of           |orange      |_______.
 -------|-----------|-------------|------------|-------------|------------|------------
 4343   |9665       |1            |3852        |6163         |6257        |
@@ -95,16 +114,24 @@ of        o6163 ---> E ---> e6163 ---> O
 orange    o6257 ---> E ---> e6257 ---> O
 
 **Other context/target pairs**
+
 I want a glass of orange juice to go alone with my cereal.
+
 Context:
+
 Last 4 words: a glass of orange ?
+
 4 words on left & right: a glass of orange ? to go along with my ceral
+
 Last 1 word: orange ?
+
 Nearby 1 word(skip gram): glass ... ?
 
 ## **Word2Vec**
 **Skip-grams**
+
 **Model**
+
 Vocab size = 10000k
 x ---> y
 Context c ("orange") 6257 ---> Target t ("juice") 4834
@@ -112,6 +139,7 @@ Oc ---> E ---> ec ---> O softmax ---> y hat
 ec = Eoc
 
 **Problems with softmax classification**
+
 Expensive calculation --- Do Hierarchical softmax classifier (binary classifier with common words in the upper levels)
 
 How to sample the context c?
@@ -120,6 +148,7 @@ In practice, different heuristics will be used to balance out something from the
 
 ## **Negative Sampling**
 **Defining a new learning problem**
+
 Context |Word   |Target
 --------|-------|-------
 orange  |juice  |1
@@ -131,25 +160,30 @@ k pairs with target 0 where k = 5 to 20 for smaller data sets and 2 to 5 for lar
 Inputs x as context and word, output y as target
 
 **Model**
+
 Regression model
 Instead of doing 10000 calculations, it's doing k + 1
 
 **Selecting negative examples**
+
 Somewhere in-between the extreme of taking uniform distribution and the other extreme of justing taking whatever was observed distribution in training set
 
 ## **GloVe word vectors**
 **GloVe (global vectors for word representation)**
+
 c, t
 Xij = #times i appears in the context of j
 where i is t, j is c
 Xij = Xji
 
 **Model**
+
 minimize $$\sum_{i=1}^{10,000}\sum_{j=1}^{10,000}f(x_{ij})(\theta_i^Te_j + b_i + b_j^{'} - logX_{ij})^2$$
 where $$f(x_{ij})$$ is the weighting function
 $$\theta_i$$ and $$e_j$$ are symmetric
 
 **A note on the featurization view of word embeddings**
+
         |Man (5391) |Woman (9853) |King (4914) |Queen (7157)
 --------|-----------|-------------|------------|------------
 Gender  |-1   |1    |-0.95 |0.97
@@ -161,6 +195,7 @@ minimize $$\sum_{i=1}^{10,000}\sum_{j=1}^{10,000}f(x_{ij})(\theta_i^Te_j + b_i +
 # **Applications using Word Embeddings**
 ## **Sentiment Classfication**
 **Sentiment classification problem**
+
 x|y
 -|-
 The desert is excellent.|4 stars
@@ -168,6 +203,7 @@ Service was quite slow.|2 stars
 Good for a quick meal,but nothing special.|3 stars
 
 **Simple sentiment classification model**
+
 The|dessert|is|excellent|4 stars
 ---|-------|--|---------|-------
 8928|2468|4694|3180
@@ -177,13 +213,16 @@ The|O8928 ---> E|e8928
 desert|O2468 ---> E|e2468
 is|O4694 ---> E|e4694
 excellent|O3180 ---> E|e3180
+
 **Disadvantage: ignore word order**
 
 **RNN for sentiment classification**
+
 Use many-to-one RNN
 
 ## **Debiasing word embeddings**
 **The problem of bias in word embeddings**
+
 Man:Woman as King:Queen
 Man:Computer_Programmer as Woman:~~Homemaker~~
 Father:Doctor as Mother:~~Nurse~~
