@@ -135,9 +135,13 @@ Nearby 1 word(skip gram): glass ... ?
 **Model**
 
 Vocab size = 10000k
+
 x ---> y
+
 Context c ("orange") 6257 ---> Target t ("juice") 4834
+
 Oc ---> E ---> ec ---> O softmax ---> y hat
+
 ec = Eoc
 
 **Problems with softmax classification**
