@@ -45,7 +45,7 @@ Jane visite l'Afrique en septembre.
 
 ---> Her African frient welcomed Jane in September.
 
-argmax P(y<1>,...y<Ty> | x)
+argmax P(y<1>,...y<Ty> \| x)
 
 Instead of sampling the outputs at random, we want to find the y that maximizes the term.
 
@@ -58,11 +58,11 @@ May result in a less optimized output.
 
 B = 3 (beam width)
 
-P(y<1> | x)
+P(y<1> \| x)
 
-P(y<1>, y<2> | x) = P(y<1> | x)P(y<2> | x, y<1>)
+P(y<1>, y<2> \| x) = P(y<1> \| x)P(y<2> \| x, y<1>)
 
-P(y<1>, y<2>, y<3> | x) = ...
+P(y<1>, y<2>, y<3> \| x) = ...
 
 **Beam search (B = 3)**
 
@@ -87,7 +87,7 @@ Larger B: better result, slower
 
 Small B: worse result, faster
 
-Unlike exact search algorithms like BFS (Breadth First Search) or DFS (Depth First Search), Beam Search runs faster but is not guaranteed to find exact maximum for arg max_y P(y|x)
+Unlike exact search algorithms like BFS (Breadth First Search) or DFS (Depth First Search), Beam Search runs faster but is not guaranteed to find exact maximum for arg max_y P(y\|x)
 
 ## **Error analysis in beam search**
 **Example**
@@ -97,17 +97,17 @@ Human: Jane visits Africa in September. (y*)
 
 Algorithm: Jane visited Africa last September. (yhat)
 
-Use the RNN model to computes P(y*|x) and P(yhat|x) to see which one is larger
+Use the RNN model to computes P(y*\|x) and P(yhat\|x) to see which one is larger
 
-- Case 1: P(y*|x) > P(yhat|x)
+- Case 1: P(y*\|x) > P(yhat\|x)
 
-Beam search chose yhat. But y* attains higher P(y|x).
+Beam search chose yhat. But y* attains higher P(y\|x).
 
 Conclusion: Beam search is at fault.
 
-- Case 2: P(y*|x) <= P(yhat|x)
+- Case 2: P(y*\|x) <= P(yhat\|x)
 
-y* is a better translation than yhat. But RNN predicted P(y*|x) < P(yhat|x).
+y* is a better translation than yhat. But RNN predicted P(y*\|x) < P(yhat\|x).
 
 Conclusion: RNN model is at fault.
 
