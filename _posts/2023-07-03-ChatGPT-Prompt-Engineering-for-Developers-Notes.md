@@ -31,7 +31,7 @@ First find relevant information,
 then answer the question based on the relevant information.
 
 ## **Notes on using the OpenAI API outside of this classroom**
-<div class="mermaid">
+```
 To install the OpenAI Python library:
 
 !pip install openai
@@ -45,7 +45,7 @@ Or, set openai.api_key to its value:
 
 import openai
 openai.api_key = "sk-..."
-</div>
+```
 
 # **Iterative**
 ## **Iterative Prompt Development**
