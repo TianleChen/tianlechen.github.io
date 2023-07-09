@@ -271,6 +271,7 @@ response = get_completion(prompt, temperature=0.7)
 
 # **Chatbot**
 Use the "message" structure instead of the "prmopt" to achieve more detailed behavior
+
 <div class="mermaid">
 import os
 import openai
