@@ -31,7 +31,7 @@ First find relevant information,
 then answer the question based on the relevant information.
 
 ## **Notes on using the OpenAI API outside of this classroom**
-~~~python
+~~~
 To install the OpenAI Python library:
 
 !pip install openai
@@ -93,7 +93,7 @@ Summarize the review below, delimited by triple backticks, in at most 30 words, 
 From the review below, delimited by triple quotes extract the information relevant to shipping and delivery. Limit to 30 words.
 
 **Summarize multiple product reviews**
-~~~
+~~~python
 review_1 = """
 abc...
 """
@@ -139,7 +139,7 @@ Include all above
 Determine five topics that are being discussed in the following text, which is delimited by triple backticks.
 
 **Make a news alert for certain topics**
-~~~
+~~~python
 topic_list = [
     "nasa", "local government", "engineering", 
     "employee satisfaction", "federal government"
@@ -180,10 +180,10 @@ ChatGPT can translate between formats. The prompt should describe the input and 
 ## **Spellcheck/Grammar check**
 To signal to the LLM that you want it to proofread your text, you instruct the model to 'proofread' or 'proofread and correct'.
 
-~~~
-------------------------------
-Correct and highlight
-------------------------------
+~~~python
+#------------------------------
+# Correct and highlight
+#------------------------------
 
 text = f"""
 Got this for my daughter for her birthday cuz she keeps taking \
@@ -204,9 +204,9 @@ from redlines import Redlines
 diff = Redlines(text,response)
 display(Markdown(diff.output_markdown))
 
-------------------------------
-Change to more compelling
-------------------------------
+#------------------------------
+# Change to more compelling
+#------------------------------
 
 prompt = f"""
 proofread and correct this review. Make it more compelling. 
@@ -220,7 +220,7 @@ display(Markdown(response))
 
 # **Expanding**
 **Customize the automated reply to a customer email**
-~~~
+~~~python
 import openai
 import os
 
@@ -272,7 +272,7 @@ response = get_completion(prompt, temperature=0.7)
 # **Chatbot**
 Use the "message" structure instead of the "prmopt" to achieve more detailed behavior
 
-~~~
+~~~python
 import os
 import openai
 from dotenv import load_dotenv, find_dotenv
@@ -307,7 +307,7 @@ messages =  [
 
 **OrderBot**
 We can automate the collection of user prompts and assistant responses to build a OrderBot. The OrderBot will take orders at a pizza restaurant.
-~~~
+~~~python
 def collect_messages(_):
     prompt = inp.value_input
     inp.value = ''
