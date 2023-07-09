@@ -31,7 +31,7 @@ First find relevant information,
 then answer the question based on the relevant information.
 
 ## **Notes on using the OpenAI API outside of this classroom**
-```
+~~~
 To install the OpenAI Python library:
 
 !pip install openai
@@ -45,7 +45,7 @@ Or, set openai.api_key to its value:
 
 import openai
 openai.api_key = "sk-..."
-```
+~~~
 
 # **Iterative**
 ## **Iterative Prompt Development**
@@ -72,12 +72,12 @@ Ask it to focus on the aspects that are relevant to the intended audience.
 Ask it to extract information and organize it in a table.
 
 ## **Notes on load Python libraries to view HTML**
-```
+~~~
 // Add description in prompt as "Format everything as HTML that can be used in a website. Place the description in a <div> element."
 Then,
 from IPython.display import display, HTML
 display(HTML(response))
-```
+~~~
 
 # **Summarizing**
 **Summarize with a word/sentence/character limit**
