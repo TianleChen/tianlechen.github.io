@@ -72,12 +72,12 @@ Ask it to focus on the aspects that are relevant to the intended audience.
 Ask it to extract information and organize it in a table.
 
 ## **Notes on load Python libraries to view HTML**
-<div class="mermaid">
+```
 // Add description in prompt as "Format everything as HTML that can be used in a website. Place the description in a <div> element."
 Then,
 from IPython.display import display, HTML
 display(HTML(response))
-</div>
+```
 
 # **Summarizing**
 **Summarize with a word/sentence/character limit**
@@ -93,7 +93,7 @@ Summarize the review below, delimited by triple backticks, in at most 30 words, 
 From the review below, delimited by triple quotes extract the information relevant to shipping and delivery. Limit to 30 words.
 
 **Summarize multiple product reviews**
-<div class="mermaid">
+~~~
 review_1 = """
 abc...
 """
@@ -115,7 +115,7 @@ for i in range(len(reviews)):
 
     response = get_completion(prompt)
     print(i, response, "\n")
-</div>
+~~~
 
 # **Inferring**
 **Sentiment (positive/negative)**
