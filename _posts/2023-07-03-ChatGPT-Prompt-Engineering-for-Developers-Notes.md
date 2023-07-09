@@ -139,7 +139,7 @@ Include all above
 Determine five topics that are being discussed in the following text, which is delimited by triple backticks.
 
 **Make a news alert for certain topics**
-<div class="mermaid">
+~~~
 topic_list = [
     "nasa", "local government", "engineering", 
     "employee satisfaction", "federal government"
@@ -158,7 +158,7 @@ Text sample: '''{story}'''
 """
 response = get_completion(prompt)
 print(response)
-</div>
+~~~
 
 # **Transforming**
 ## **Translation**
@@ -180,7 +180,7 @@ ChatGPT can translate between formats. The prompt should describe the input and 
 ## **Spellcheck/Grammar check**
 To signal to the LLM that you want it to proofread your text, you instruct the model to 'proofread' or 'proofread and correct'.
 
-<div class="mermaid">
+~~~
 ------------------------------
 Correct and highlight
 ------------------------------
@@ -216,11 +216,11 @@ Text: ```{text}```
 """
 response = get_completion(prompt)
 display(Markdown(response))
-</div>
+~~~
 
 # **Expanding**
 **Customize the automated reply to a customer email**
-<div class="mermaid">
+~~~
 import openai
 import os
 
@@ -264,7 +264,7 @@ Review sentiment: {sentiment}
 """
 response = get_completion(prompt)
 print(response)
-</div>
+~~~
 
 **Remind the model to use details from the customer's email**
 response = get_completion(prompt, temperature=0.7)
@@ -272,7 +272,7 @@ response = get_completion(prompt, temperature=0.7)
 # **Chatbot**
 Use the "message" structure instead of the "prmopt" to achieve more detailed behavior
 
-<div class="mermaid">
+~~~
 import os
 import openai
 from dotenv import load_dotenv, find_dotenv
@@ -303,11 +303,11 @@ messages =  [
 {'role':'user', 'content':'tell me a joke'},   
 {'role':'assistant', 'content':'Why did the chicken cross the road'},   
 {'role':'user', 'content':'I don\'t know'}  ]
-</div>
+~~~
 
 **OrderBot**
 We can automate the collection of user prompts and assistant responses to build a OrderBot. The OrderBot will take orders at a pizza restaurant.
-<div class="mermaid">
+~~~
 def collect_messages(_):
     prompt = inp.value_input
     inp.value = ''
@@ -378,7 +378,7 @@ messages.append(
 
 response = get_completion_from_messages(messages, temperature=0)
 print(response)
-</div>
+~~~
 
 # *Conclusion*
 **Principles**
