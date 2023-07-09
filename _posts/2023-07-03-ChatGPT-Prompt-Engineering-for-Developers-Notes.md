@@ -380,7 +380,7 @@ response = get_completion_from_messages(messages, temperature=0)
 print(response)
 ~~~
 
-# *Conclusion*
+# **Conclusion**
 **Principles**
 - Write clear and specific instructions
 - Give the model time to "think"
