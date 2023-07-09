@@ -31,7 +31,7 @@ First find relevant information,
 then answer the question based on the relevant information.
 
 ## **Notes on using the OpenAI API outside of this classroom**
-~~~
+~~~python
 To install the OpenAI Python library:
 
 !pip install openai
