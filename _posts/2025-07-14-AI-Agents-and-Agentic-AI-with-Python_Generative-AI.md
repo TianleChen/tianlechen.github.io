@@ -66,10 +66,10 @@ When integrating AI into real-world environments, tool descriptions must be expl
 ## **The GAME Framework: Designing AI Agents**
 The GAME framework provides a structured way to design AI agents, ensuring modularity and adaptability. It breaks agent design into four essential components:
 
-    G - Goals / Instructions: What the agent is trying to accomplish and its instructions on how to try to achieve its goals.
-    A - Actions: The tools the agent can use to achieve its goals.
-    M - Memory: How the agent retains information across interactions, which determines what information it will have available in each iteration of the agent loop.
-    E - Environment: The agent’s interface to the external world where it executes actions and gets feedback on the results of those actions.
+G - Goals / Instructions: What the agent is trying to accomplish and its instructions on how to try to achieve its goals.
+A - Actions: The tools the agent can use to achieve its goals.
+M - Memory: How the agent retains information across interactions, which determines what information it will have available in each iteration of the agent loop.
+E - Environment: The agent’s interface to the external world where it executes actions and gets feedback on the results of those actions.
 
 ## **Simulating GAME Agents in a Conversation**
 How Your Agent Communicates with the LLM: The Agent Language
