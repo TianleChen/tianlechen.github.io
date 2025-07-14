@@ -8,7 +8,7 @@ description: "Notes for learning the Transformer architecture"
 ---
 
 # **Transformer**
-[Transformer Architecture](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/1280px-Transformer%2C_full_architecture.png)
+![Transformer Architecture](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Transformer%2C_full_architecture.png/1280px-Transformer%2C_full_architecture.png)
 Encoder & Decoder stacks + Self Attention
 
 ## **Why Transformer**
@@ -69,4 +69,4 @@ Self-attention process is split into multiple "heads". Each head independently a
 - Richer Representations
 - Improved Learning
 
-<iframe width="420" height="315" src="https://youtu.be/eMlx5fFNoYc?si=tjKK6cej2zIPDCX_" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eMlx5fFNoYc?si=dgehqnp54tO1DP_u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
